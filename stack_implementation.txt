@@ -1,0 +1,104 @@
+#include<iostream>
+using namespace std;
+#define SIZE 5
+int stack[SIZE];
+int top=-1;
+void push(int x)
+{
+    if(top>=(SIZE-1))
+    {
+       cout<<"Stack is full\n";
+    }
+    else
+     {
+       stack[++top]=x;
+
+    }
+}
+void pop()
+{
+    if(top<0)
+     {
+         cout<<"Stack is empty.\n";
+     }
+     else
+     {
+       cout<<"\nElement popped from stack "<<stack[top];
+       top--;
+       }
+}
+void peek()
+{
+    if(top<0)
+       cout<<"Stack is empty.\n";
+    else
+      {
+          int p=stack[top];
+          cout<<"\nTop element is "<<p;
+      }
+    cout<<endl;
+}
+void display()
+{
+        if(top<0)
+         cout<<"Stack is empty.\n";
+        else
+        {
+          for(int i=top;i>=0;i--)
+          {
+              cout<<stack[i]<<"\n";
+          }
+      }
+}
+void isEmpty()
+{
+        if(top<0)
+          cout<<"Stack is empty.";
+       else
+          cout<<"Stack is not empty.";
+}
+void isFull()
+{
+        if(top==SIZE-1)
+                cout<<"Stack is full";
+        else
+                cout<<"Stack is not full";
+}
+int main()
+{
+    int w,g,x;
+    char ch;
+    ch='y';
+    while(ch!='n')
+    {
+       cout<<"Choose the option \n1.Push\n2.Pop\n3.Peek\n4.Empty\n5.Full";
+       cin>>g;
+       if(g==1)
+       {
+         cout<<"Enter element.\n";
+         cin>>x;
+         push(x);
+         cout<<"\nThe elements in array:\n";
+         display();
+       }
+      if(g==2)
+      {
+        pop();
+      }
+     if(g==3)
+     {
+        peek();
+     }
+     if(g==4)
+     {
+        isEmpty();
+     }
+     if(g==5)
+     {
+        isFull();
+     }
+      cout<<"\nDo u want to continue(y/n)";
+      cin>>ch;
+    }
+    return 0;
+}
